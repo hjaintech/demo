@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './CityCardCss';
 
-const CityCard = ({ name, url }) => {
+const CityCard = ({city, onCitySelect}) => {
     return (
-        <div style={styles.cityWrapper}>
-            <img style={styles.cityImage} src={url} alt={name}/>
-            <span style={styles.cityName}>{name}</span>
+        <div style={styles.cityWrapper} onClick={() => onCitySelect(city)}>
+            <img style={styles.cityImage} src={city.url} alt={city.name}/>
+            <span style={styles.cityName}>{city.name}</span>
         </div>
     );
 }

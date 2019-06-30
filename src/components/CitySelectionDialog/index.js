@@ -1,18 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CityCard from '../CityCard';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import styles from './CitySelectionDialogCss';
 
-const getCityListJSX = (cityList) => {
-    return cityList.map(city => (
-        <CityCard
-            name={city.name}
-            url={city.url}
-        />
-    ));
-}
-const CitySelectionDialog = () => {
+const CitySelectionDialog = ({open, onCitySelect}) => {
     // State to maintain city list
     const [cityList, setCityList] = React.useState([]);
 
@@ -24,11 +16,20 @@ const CitySelectionDialog = () => {
           });
       }, []);
 
+    const getCityListJSX = () => {
+        return cityList.map(city => (
+            <CityCard
+                city={city}
+                key={city.cityId}
+                onCitySelect={onCitySelect}
+            />
+        ));
+    };
     return (
-        <Dialog onClose={() => { }} open>
+        <Dialog onClose={() => { }} open={open}>
             <DialogTitle>{'Please select a city'}</DialogTitle>
             <div style={styles.cityList}>
-                {getCityListJSX(cityList)}
+                {getCityListJSX()}
             </div>
         </Dialog>
     );

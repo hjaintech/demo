@@ -5,9 +5,11 @@ import Carousel from '../../components/Carousel';
 
 import CitySelectionDialog from '../../components/CitySelectionDialog';
 const Landing = () => {
+  const [showCitySelector, setShowCitySelector] = React.useState(false);
+  const [selectedCityObj, setSelectedCityObj] = React.useState({});
   return (
     <React.Fragment>
-      <Header />
+      <Header openCitySelector={() => {setShowCitySelector(true)}} selectedCity={selectedCityObj} />
       <Carousel
         urls={[
           "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780415/banner/oovabghxg54esiugrkne.webp",
@@ -16,7 +18,15 @@ const Landing = () => {
           "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780466/banner/wg7sgxppdf51wfyprqtc.webp"
         ]}
       />
-      {<CitySelectionDialog />}
+      {<CitySelectionDialog
+        open={showCitySelector}
+        onCitySelect={
+          (obj) => {
+            setSelectedCityObj(obj);
+            setShowCitySelector(false);
+          }
+        }
+      />}
 
     </React.Fragment>
   );
