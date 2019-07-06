@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import Carousel from '../../components/Carousel';
 import CitySelection from '../../components/CitySelection';
 import AboutUs from '../../components/AboutUs';
+import WhyUs from '../../components/WhyUs';
+import ServicesWeOffer from '../../components/ServicesWeOffer';
 
 import CitySelectionDialog from '../../components/CitySelectionDialog';
 const Landing = () => {
@@ -24,20 +26,9 @@ const Landing = () => {
       <CitySelection
         onCitySelect={(obj) => {alert(JSON.stringify(obj))}}  
       />
-      {/* <div>
-        Top Driving schools
-      </div> */}
       <AboutUs />
-      {/* <div>
-        Why us
-      </div>
-      <div>
-        Services we offer
-      </div>
-      <div>
-        Testimonials
-      </div> */}
-      {/* #f6f7f7 */}
+      <WhyUs/>
+      <ServicesWeOffer />
       {/* {<CitySelectionDialog
         open={showCitySelector}
         onCitySelect={
