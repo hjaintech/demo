@@ -28,4 +28,5 @@ export default {
     content: {
         margin: 20
     }
+    
 };
