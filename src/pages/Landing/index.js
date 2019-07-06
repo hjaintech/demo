@@ -2,6 +2,8 @@ import React from 'react';
 //import styles from './LandingCss';
 import Header from '../../components/Header';
 import Carousel from '../../components/Carousel';
+import CitySelection from '../../components/CitySelection';
+import AboutUs from '../../components/AboutUs';
 
 import CitySelectionDialog from '../../components/CitySelectionDialog';
 const Landing = () => {
@@ -9,7 +11,8 @@ const Landing = () => {
   const [selectedCityObj, setSelectedCityObj] = React.useState({});
   return (
     <React.Fragment>
-      <Header openCitySelector={() => {setShowCitySelector(true)}} selectedCity={selectedCityObj} />
+      {/* <Header openCitySelector={() => {setShowCitySelector(true)}} selectedCity={selectedCityObj} /> */}
+      <Header/>
       <Carousel
         urls={[
           "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780415/banner/oovabghxg54esiugrkne.webp",
@@ -18,7 +21,24 @@ const Landing = () => {
           "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780466/banner/wg7sgxppdf51wfyprqtc.webp"
         ]}
       />
-      {<CitySelectionDialog
+      <CitySelection
+        onCitySelect={(obj) => {alert(JSON.stringify(obj))}}  
+      />
+      {/* <div>
+        Top Driving schools
+      </div> */}
+      <AboutUs />
+      {/* <div>
+        Why us
+      </div>
+      <div>
+        Services we offer
+      </div>
+      <div>
+        Testimonials
+      </div> */}
+      {/* #f6f7f7 */}
+      {/* {<CitySelectionDialog
         open={showCitySelector}
         onCitySelect={
           (obj) => {
@@ -26,7 +46,7 @@ const Landing = () => {
             setShowCitySelector(false);
           }
         }
-      />}
+      />} */}
 
     </React.Fragment>
   );

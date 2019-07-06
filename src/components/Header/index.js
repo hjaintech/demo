@@ -15,7 +15,7 @@ const Header = ({openCitySelector, selectedCity = {}}) => {
                 <Typography variant="h6" color="inherit" noWrap>
                     Usher
                 </Typography>
-                <div style={styles.currentLocContainer} onClick={() => {openCitySelector()}}>
+                {/* <div style={styles.currentLocContainer} onClick={() => {openCitySelector()}}>
                     {
                         selectedCity && selectedCity.name ? 
                             `Currently showing results for ${selectedCity.name}`:
@@ -23,7 +23,7 @@ const Header = ({openCitySelector, selectedCity = {}}) => {
                     }
                     
                     <img src={ArrowDownIcon} style={{marginLeft: 10, height: 15, width: 15, cursor: 'pointer'}} alt='down arrow'/>
-                </div>
+                </div> */}
                 
                 <div style={styles.marginLeftAuto}>
                     <Button href="#" color="primary" variant="contained" style={styles.marginRight10}>
