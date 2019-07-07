@@ -1,7 +1,8 @@
 export default {
     mainContainer: {
         marginLeft: 100,
-        marginRight: 100
+        marginRight: 100,
+        marginBottom: 100
     },
     servicesWeOfferContent: {
         display: 'flex',
