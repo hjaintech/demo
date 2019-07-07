@@ -10,22 +10,33 @@ import Footer from '../../components/Footer';
 
 import CitySelectionDialog from '../../components/CitySelectionDialog';
 const Landing = () => {
-  const [showCitySelector, setShowCitySelector] = React.useState(false);
-  const [selectedCityObj, setSelectedCityObj] = React.useState({});
+  const [banners, setBanners] = React.useState([]);
+  const [cities, setCities] = React.useState([]);
+
+
+  const setHomePageData = (data) => {
+    setBanners(data.banners);
+    setCities(data.cities);
+  };
+
+  React.useEffect(() => {
+    fetch('https://my-json-server.typicode.com/hjaintech/mockAPI/homepage')
+      .then(results => results.json())
+      .then(homepageData => {
+        setHomePageData(homepageData);
+      });
+  }, []);
+
   return (
     <React.Fragment>
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       {/* <Header openCitySelector={() => {setShowCitySelector(true)}} selectedCity={selectedCityObj} /> */}
       <Header/>
       <Carousel
-        urls={[
-          "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780415/banner/oovabghxg54esiugrkne.webp",
-          "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780471/banner/aahbivubzzplrfd5brwk.webp",
-          "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780457/banner/zjpdjgvjmwfh6tdydteh.webp",
-          "https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,,w_1920,/v1556780466/banner/wg7sgxppdf51wfyprqtc.webp"
-        ]}
+        data={banners}
       />
       <CitySelection
+        data={cities}
         onCitySelect={(obj) => {alert(JSON.stringify(obj))}}  
       />
       <AboutUs />

@@ -4,24 +4,24 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import styles from './CitySelectionCss';
 
-const CitySelection = ({onCitySelect}) => {
-    // State to maintain city list
-    const [cityList, setCityList] = React.useState([]);
+const CitySelection = (props) => {
+    // // State to maintain city list
+    // const [cityList, setCityList] = React.useState([]);
 
-    React.useEffect(() => {
-        fetch('https://my-json-server.typicode.com/hjaintech/mockAPI/cities')
-          .then(results => results.json())
-          .then(data => {
-            setCityList(data);
-          });
-      }, []);
+    // React.useEffect(() => {
+    //     fetch('https://my-json-server.typicode.com/hjaintech/mockAPI/homepage')
+    //       .then(results => results.json())
+    //       .then(data => {
+    //         setCityList(data);
+    //       });
+    //   }, []);
 
     const getCityListJSX = () => {
-        return cityList.map(city => (
+        return props.data.map(city => (
             <CityCard
                 city={city}
                 key={city.cityId}
-                onCitySelect={onCitySelect}
+                onCitySelect={props.onCitySelect}
             />
         ));
     };
