@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ServicesWeOfferCss';
-import TitleStrip from '../TitleStrip';
+import TitleStrip from '../../../components/TitleStrip';
 import Paper from '@material-ui/core/Paper';
 
 const CONTENT = [

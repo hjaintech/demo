@@ -5,16 +5,6 @@ import Dialog from '@material-ui/core/Dialog';
 import styles from './CitySelectionCss';
 
 const CitySelection = (props) => {
-    // // State to maintain city list
-    // const [cityList, setCityList] = React.useState([]);
-
-    // React.useEffect(() => {
-    //     fetch('https://my-json-server.typicode.com/hjaintech/mockAPI/homepage')
-    //       .then(results => results.json())
-    //       .then(data => {
-    //         setCityList(data);
-    //       });
-    //   }, []);
 
     const getCityListJSX = () => {
         return props.data.map(city => (

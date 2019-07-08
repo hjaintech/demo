@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AboutUsCss';
-import TitleStrip from '../TitleStrip';
+import TitleStrip from '../../../components/TitleStrip';
 
 const AboutUs = () => {
     return (
