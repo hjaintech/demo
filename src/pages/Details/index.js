@@ -8,7 +8,10 @@ const Details = () => {
     return (
     <div>
         <Header />
-        <Package />
+        <div style={styles.packageContainer}>
+            <Package />
+        </div>
+        
         I am details page
         <Footer />
     </div>
